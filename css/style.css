@@ -4,7 +4,7 @@
 /* Custom properties */
 :root {
     --light-color: #fff;
-    --color-orange:#d84747;
+    --color-orange: #d84747;
     --light-color-alt: #afb6cd;
     --primary-background-color: #131417;
     --secondary-background-color: #252830;
@@ -50,12 +50,15 @@ body {
     background-color: var(--primary-background-color);
     margin: 0 auto;
 }
+
 .public_width {
     padding: 2%;
 }
+
 .header {
     margin: 1% 0 1.5% 0;
 }
+
 .profile-img {
     padding-bottom: .5%;
     display: flex;
@@ -75,17 +78,21 @@ body {
     flex-wrap: wrap;
     gap: 5px;
 }
+
 .header-info .basic-info {
     padding-left: .5%;
 }
+
 .header-info .contact-info {
     margin-right: 0;
     justify-content: flex-end;
 }
+
 a {
     color: var(--color-orange);
     text-decoration: none;
 }
+
 .div-clear {
     clear: both;
 }
@@ -95,11 +102,13 @@ hr {
     width: 100%;
     border: 3px solid var(--light-color-alt);
 }
+
 .title {
     font-size: 1.9rem;
     font-weight: bold;
     color: var(--color-orange);
 }
+
 .sub-title {
     font-size: 1.7rem;
     font-weight: 600;
@@ -110,56 +119,63 @@ hr {
 .personal-info {
     margin: 1.5% 0;
 }
+
 /* Key skills */
 .skills {
     margin: 1.5% 0;
     display: flex;
     flex-direction: row;
 }
+
 .left-div {
     flex-basis: 30%;
 }
+
 .right-div {
     flex-basis: 70%;
 }
 
-.ul-workexperience{
+.ul-workexperience {
     list-style: none;
     padding: 1.2% 0 .7% 1.2%;
 }
-ul{
+
+ul {
     list-style-type: none;
 }
+
 li::before {
     content: "\2022";
     color: var(--color-orange);
     font-weight: bold;
-    display: inline-block; 
+    display: inline-block;
     width: 1em;
     margin-left: -1em;
-  }
+}
 
 
-    /* Media Query */
-    @media only screen and (max-width: 800px) {
-        .profile-img {
-            max-width: 150px;
-            height: auto;
-             margin: auto;
-            float: none;
-        }
-
-        .skills {
-            margin: 1.5% 2%;
-            display: flex;
-            flex-direction: column;
-        }
-        .left-div {
-            flex-basis: 100%;
-            text-align: center;
-        }
-        .right-div {
-            flex-basis: 100%;
-        }
-        
+/* Media Query */
+@media only screen and (max-width: 800px) {
+    .profile-img {
+        max-width: 150px;
+        height: auto;
+        margin: auto;
+        float: none;
     }
+
+    .skills {
+        margin: 1.5% 2%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-div {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .right-div {
+        flex-basis: 100%;
+    }
+
+}
