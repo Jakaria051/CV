@@ -1,21 +1,28 @@
 /* Import font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
 /* Custom properties */
 :root {
     --light-color: #fff;
-    --color-orange:#d84747;
     --light-color-alt: #afb6cd;
+    --color-orange: #d84747;
+    --color-orange-alt: #cb5c5c;
     --primary-background-color: #131417;
     --secondary-background-color: #252830;
     --hover-light-color: var(--light-color);
     --hover-dark-color: var(--primary-background-color);
-    --gradient-color: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
-    --transparent-light-color: rgba(255, 255, 255, .05);
-    --transparent-dark-color: rgba(0, 0, 0, .75);
-    --font-family: 'Poppins', sans-serif;
+    --gradient-color: linear-gradient(115deg,
+            #4fcf70,
+            #fad648,
+            #a767e5,
+            #12bcfe,
+            #44ce7b);
+    --transparent-light-color: rgba(255, 255, 255, 0.05);
+    --transparent-dark-color: rgba(0, 0, 0, 0.75);
+    --font-family: "Poppins", sans-serif;
     --font-size-xsm: 1.2rem;
     --font-size-sm: 1.6rem;
+    --font-size-smd: 2.1rem;
     --font-size-md: 2.4rem;
     --font-size-lg: 3rem;
     --font-size-xl: 4rem;
@@ -40,9 +47,10 @@ html {
 
 body {
     font-family: var(--font-family);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-smd);
     color: var(--light-color-alt);
     background-color: var(--secondary-background-color);
+    text-align: justify;
 }
 
 .container {
@@ -50,14 +58,17 @@ body {
     background-color: var(--primary-background-color);
     margin: 0 auto;
 }
+
 .public_width {
     padding: 2%;
 }
+
 .header {
     margin: 1% 0 1.5% 0;
 }
+
 .profile-img {
-    padding-bottom: .5%;
+    padding-bottom: 0.5%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -68,24 +79,29 @@ body {
 }
 
 .header-info {
-    padding: .5%;
+    padding: 0.5%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 5px;
 }
+
 .header-info .basic-info {
-    padding-left: .5%;
+    padding-left: 0.5%;
 }
+
 .header-info .contact-info {
     margin-right: 0;
     justify-content: flex-end;
 }
-a {
+.contact-detail {
     color: var(--color-orange);
+}
+a {
     text-decoration: none;
 }
+
 .div-clear {
     clear: both;
 }
@@ -95,13 +111,15 @@ hr {
     width: 100%;
     border: 3px solid var(--light-color-alt);
 }
+
 .title {
-    font-size: 1.9rem;
+    font-size: var(--font-size-md);
     font-weight: bold;
     color: var(--color-orange);
 }
+
 .sub-title {
-    font-size: 1.7rem;
+    font-size: var(--font-size-smd);
     font-weight: 600;
     color: var(--color-orange);
 }
@@ -110,56 +128,94 @@ hr {
 .personal-info {
     margin: 1.5% 0;
 }
+
 /* Key skills */
 .skills {
     margin: 1.5% 0;
     display: flex;
     flex-direction: row;
 }
+
 .left-div {
     flex-basis: 30%;
 }
+
 .right-div {
     flex-basis: 70%;
 }
 
-.ul-workexperience{
+.ul-workexperience {
     list-style: none;
-    padding: 1.2% 0 .7% 1.2%;
+    padding: 1.2% 0 0.7% 1.2%;
 }
-ul{
+
+ul {
     list-style-type: none;
 }
+
 li::before {
     content: "\2022";
     color: var(--color-orange);
     font-weight: bold;
-    display: inline-block; 
+    display: inline-block;
     width: 1em;
     margin-left: -1em;
-  }
+}
 
+.project-title {
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    color: var(--color-orange);
+    border-bottom: 2px solid var(--light-color);
 
-    /* Media Query */
-    @media only screen and (max-width: 800px) {
-        .profile-img {
-            max-width: 150px;
-            height: auto;
-             margin: auto;
-            float: none;
-        }
-
-        .skills {
-            margin: 1.5% 2%;
-            display: flex;
-            flex-direction: column;
-        }
-        .left-div {
-            flex-basis: 100%;
-            text-align: center;
-        }
-        .right-div {
-            flex-basis: 100%;
-        }
-        
+}
+.project-detail {
+    color: var(--light-color-alt);
+    padding-left: .9%;
+    padding-top: .6%;
+}
+/* Media Query */
+@media only screen and (max-width: 800px) {
+    body {
+        font-size: var(--font-size-sm);
     }
+    
+    .public_width {
+        padding: 5%;
+    }
+
+    .profile-img {
+        max-width: 150px;
+        height: auto;
+        margin: auto;
+        float: none;
+    }
+
+    .skills {
+        margin: 1.5% 2%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-div {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .right-div {
+        flex-basis: 100%;
+    }
+
+    .title {
+        font-size: var(--font-size-sm);
+    }
+    
+    .sub-title {
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        color: var(--color-orange);
+    }
+    .project-title {
+        font-size: var(--font-size-sm);
+    }
+}
