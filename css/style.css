@@ -101,6 +101,17 @@ body {
 a {
     text-decoration: none;
 }
+.cv-button{
+    background-color: var(--color-orange);
+    color: var(--light-color);
+    border:none;
+    font-size: 1.7rem;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 0px;
+}
 
 .div-clear {
     clear: both;
