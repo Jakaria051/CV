@@ -1,193 +1,851 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My CV</title>
-  <link rel="icon" type="image/JPG" sizes="32x32" href="./assets/profile.JPG" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Jakaria Ahmed Chowdhury | Computer Science &amp; Cybersecurity Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --bg-dark: #0b1120;
+      --bg-card: #111827;
+      --bg-card-hover: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --border: #1e293b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #7dd3fc;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 17, 32, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .btn-nav {
+      padding: 8px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      color: var(--accent) !important;
+      font-weight: 600 !important;
+    }
+
+    .btn-nav:hover {
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      max-width: 640px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0b1120;
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+      color: #0b1120;
+    }
+
+    .btn-outline {
+      background: var(--bg-card);
+      border-color: var(--border);
+      color: var(--text-primary);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    /* Academic Profile Card */
+    .profile-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      color: #0b1120;
+      font-weight: 800;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .profile-top h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .profile-top p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .profile-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 0.92rem;
+    }
+
+    .profile-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text-secondary);
+    }
+
+    .profile-list i {
+      color: var(--accent);
+      margin-top: 4px;
+      width: 16px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .profile-list strong {
+      color: var(--text-primary);
+    }
+
+    /* Sections */
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .section-tag {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    section h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+    }
+
+    /* Tags */
+    .tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tag-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .pill-badge {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+    }
+
+    .card-sub {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+    }
+
+    .card ul li {
+      margin-bottom: 8px;
+    }
+
+    /* Publications */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .pub-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .pub-card h3 {
+      font-size: 1.08rem;
+      margin: 8px 0;
+    }
+
+    .pub-authors {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+
+    .pub-authors strong {
+      color: var(--text-primary);
+    }
+
+    .pub-venue {
+      color: #cbd5e1;
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Education */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+
+    .gpa-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 12px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 8px;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 56px 0;
+      text-align: center;
+    }
+
+    footer h2 {
+      font-size: 1.75rem;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .copyright {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <div class="container">
-    <!--Public Width-->
-    <div class="public_width">
-      <!--Header Portion-->
-      <header class="header">
-        <img class="profile-img" src="./assets/profile.JPG" alt="profile-pic">
-        <div class="header-info">
-          <div class="basic-info">
-            <h3>Jakaria Ahmed Chowdhury</h3>
-              <h4>Full Stack Developer</h4>
-              <h5>Bondhon-D, House No:04, Borobazar, Amberkhana, Sylhet</h5>
-              <h4>
-                <a href="./assets/Jakaria_cv22.pdf" target="blank" download="">
-                    <button class="cv-button">Download CV</button>
-                </a>
-              </h4>
-          </div>
-          <div class="contact-info">
-            <h4><i class="fa-solid fa-envelope"></i>&nbsp;:&nbsp;&nbsp;<a class="contact-detail" href="mailto:jakaria009@gmail.com">Jakaria009@gmail.com</a></h4>
-            <h4><i class="fa-solid fa-phone"></i>&nbsp;:&nbsp;&nbsp;<a class="contact-detail" href="tel:01621417585">+8801621417585</a></h4>
-            <h4><i class="fa-brands fa-linkedin"></i>&nbsp;:&nbsp;&nbsp;<a class="contact-detail" target="_blank" href="https://www.linkedin.com/in/jakaria-ahmed-chowdhury-057352b1/">Jakaria</a></h4>
-            <h4><i class="fa-brands fa-github-square"></i>&nbsp;:&nbsp;&nbsp;<a class="contact-detail" target="_blank" href="https://github.com/Jakaria051">Jakaria051</a></h4>
 
-          </div>
-          
-        </div>
-      </header>
-      <!--End of Header Portion-->
-      <div class="div-clear"></div>
-      <hr>
-      <!--Personal Info-->
-      <div class="personal-info">
-        <p>I am a Computer Science and Engineering graduate with practical qualities. A confident and
-          organized team member with excellent communication skills. I have developed excellent time
-          management and organization skills during my study and work period due to close knit course works
-          and deadlines. I am adaptable and able to work well under pressure. I am looking for an opportunity
-          within an innovative and friendly workspace where I can utilize my soft skills and learn indepth
-          knowledge of new technologies.</p>
-      </div>
-      <!--End of personal info-->
-      <div class="div-clear"></div>
-      <hr>
-      <!--Key skills-->
-      <div class="skills">
-        <div class="left-div">
-          <h3>Key Skills</h3>
-        </div>
-        <div class="right-div">
-          <p><span class="title">Problem Solving Skills: &nbsp;</span>I started enjoying problem solving since I was
-            learning to write C
-            programming. I have participated in different programming languages contest and solved
-            good number of problems.</p>
-          <p><span class="title">Programming Languages: &nbsp;</span>Good knowledge on different programming languages
-            including
-            C, C++, JavaScript, React Js, Laravel, jQuery, AJAX, API, CSS. I have done couple of projects in
-            my term time and workplace. I am passionate about programming.</p>
-          <p><span class="title">Accuracy and Time Management Skills: &nbsp;</span>I have a good accuracy and time
-            management
-            skills. I have developed these during my study period by submitting my tasks and preparing
-            myself within timeline.</p>
-        </div>
-      </div>
-      <!--end of Key skills-->
-      <div class="div-clear"></div>
-      <hr>
-      <!--Education-->
-      <div class="skills">
-        <div class="left-div">
-          <h3>Education</h3>
-        </div>
-        <div class="right-div">
-          <p><span class="title">BSc in Computer Science and Engineering&nbsp;[2015-2019]: &nbsp;</span>
-            <br>
-            CGPA: 3.67 out of 4.0
-            <br>
-            Metropolitan University, Sylhet
-          </p>
-          <p><span class="title">Higher secondary certificate [HSC-&nbsp;2014]: &nbsp;</span>
-            <br>
-            GPA: 4.70 out of 5.0
-            <br>
-            Scholars home College, Sylhet.
-          </p>
-          <p><span class="title">Secondary school certificate [SSC-&nbsp;2012]: &nbsp;</span>
-            <br>
-            GPA: 4.50 out of 5.0
-            <br>
-            Police line high school, Sylhet
-          </p>
-        </div>
-      </div>
-      <!--end of Education section-->
-      <div class="div-clear"></div>
-      <hr>
-      <!--Experience-->
-      <div class="skills">
-        <div class="left-div">
-          <h3>Work experience</h3>
-        </div>
-        <div class="right-div">
-          <p><span class="title">Full-stack developer&nbsp;[March 2019 - Now]: &nbsp;</span>
-            <br>
-            <a href="https://www.itorchid.com/" target="_blank"><span class="sub-title">IT Orchid, Sylhet</span></a>
-          </p>
-          <ul class="ul-workexperience">
-            <li>Working closely with analysts, designers.</li>
-            <li>Producing detailed specifications and writing the program codes -Maintaining the
-              systems once they are up and running.</li>
-            <li>Collaborating with other developers in order to complete project on time and
-              successfully.</li>
-            <li>Back-end frameworks to build server-side software - Web server technologies.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="skills">
-        <div class="left-div">
-        </div>
-        <div class="right-div">
-          <h3 class="title">Projects&nbsp;&rArr;</h3>
-            <p>&sext;&nbsp;<a class="project-title" href="https://technettutorial.com/" target="_blank">Technet Tutorial</a><br>
-              <p class="project-detail">&check;&nbsp;Technet is an online learning and teaching marketplace. Where we use the Vimeo server for video streaming & used Paypal for the payment system. In this project, I've worked on Vimeo server related work as well as the payment system and all of the Admin panels(Instructor panel, Admin Panel).</p>
-            </p>
-            <p>&sext;&nbsp;<a class="project-title" href="https://onlineordering201.com/" target="_blank">Online Ordering</a><br>
-              <p class="project-detail">&check;&nbsp;Online food ordering is the process of ordering food and Drinks on a website or Mobile apps of a particular Restaurant or any food vender. In this project, I've designed database system as well as worked on all order processes & payment systems.</p>
-            </p>
-            <p>&sext;&nbsp;<a class="project-title" href="https://www.baadhan.com/" target="_blank">Baadhan.com</a><br>
-              <p class="project-detail">&check;&nbsp;Most Trusted Matrimony Service for Worldwide people. In this project, I've developed a live chat system as well payment system.</p>
-            </p>
-        </div>
-      </div>
-      <!--end of Experience section-->
-      <div class="div-clear"></div>
-      <hr>
-      <!--Achievements-->
-      <div class="skills">
-        <div class="left-div">
-          <h3>Achievements</h3>
-        </div>
-        <div class="right-div">
-          <ul>
-            <li>Certified Android mobile game development, under ICT division, people’s republic of
-              Bangladesh, certified by George Washington University, USA.</li>
-            <li>Certified mobile games and graphics under capacity building for mobile game
-              development program of ICT division, people’s republic of Bangladesh.</li>
-            <li>Runner up of Hackathon, solve a problem contest, Sylhet region.</li>
-          </ul>
-        </div>
-      </div>
-      <!--end of Achievements section-->
-      <div class="div-clear"></div>
-      <hr>
-
-      <!--Volunteer and Interest-->
-      <div class="skills">
-        <div class="left-div">
-          <h3>Volunteer and Interest</h3>
-        </div>
-        <div class="right-div">
-          <ul>
-            <li>Active volunteer of non-profit organisations named ‘Droits’ and ‘Save Sylhet’.</li>
-            <li>Interested in the field of Artificial Intelligence, Machine Learning and human-computer
-              interactions.</li>
-            <li>Participating in many programming contest and debate contest.</li>
-            <li>Travelling and playing cricket.</li>
-          </ul>
-        </div>
-      </div>
-      <!--end of Volunteer and Interest section-->
-      <div class="div-clear"></div>
-
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#about" class="brand">
+        <span class="brand-dot"></span>
+        <span>Jakaria A. Chowdhury</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#interests">Research Interests</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects &amp; Awards</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="my_cv_27.pdf" download="Jakaria_Ahmed_Chowdhury_CV.pdf" class="btn-nav">
+          <i class="fas fa-file-download"></i> Download CV
+        </a>
+      </nav>
     </div>
-    <!--End of public width-->
-  </div>
+  </header>
 
-  <!--Script-->
-  <script src="./js/script.js"></script>
+  <!-- Hero & Academic Profile -->
+  <section id="about" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">
+          <i class="fas fa-shield-alt"></i>
+          <span>Doctoral Researcher &bull; AI &amp; Cybersecurity</span>
+        </div>
+        <h1>Jakaria Ahmed <span>Chowdhury</span></h1>
+        <p class="hero-subtitle">
+          Computer Science &amp; Cybersecurity Researcher specializing in <strong>Explainable AI (XAI)</strong>,
+          <strong>Zero-Day Phishing Detection</strong>, <strong>Quantum-Resistant Cryptography</strong>, and
+          <strong>Trustworthy ML Architectures</strong>.
+        </p>
+        <div class="hero-actions">
+          <a href="#publications" class="btn btn-primary">
+            <i class="fas fa-book-open"></i> View Publications
+          </a>
+          <a href="my_cv_27.pdf" download="Jakaria_Ahmed_Chowdhury_CV.pdf" class="btn btn-outline">
+            <i class="fas fa-file-download"></i> Download CV
+          </a>
+          <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QDnuKkAAAAAJ" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fas fa-graduation-cap"></i> Google Scholar
+          </a>
+          <a href="https://github.com/Jakaria051" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/jak-aria" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Academic Profile Card -->
+      <aside class="profile-card">
+        <div class="profile-top">
+          <div class="avatar">JC</div>
+          <div>
+            <h3>Academic Profile</h3>
+            <p>Falls Church, VA 22041</p>
+          </div>
+        </div>
+        <ul class="profile-list">
+          <li>
+            <i class="fas fa-university"></i>
+            <span>Doctoral Candidate in CS, <strong>University of the Potomac</strong> (CGPA: <strong>4.0/4.0</strong>)</span>
+          </li>
+          <li>
+            <i class="fas fa-user-graduate"></i>
+            <span>M.S. in IT, <strong>Washington University of Science and Technology</strong> (CGPA: <strong>3.83/4.0</strong>)</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:jakaria.chowdhury@student.potomac.edu">jakaria.chowdhury@student.potomac.edu</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <span>+1 (475) 296-9503</span>
+          </li>
+          <li>
+            <i class="fas fa-graduation-cap"></i>
+            <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QDnuKkAAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar Profile</a>
+          </li>
+          <li>
+            <i class="fas fa-file-pdf"></i>
+            <a href="my_cv_27.pdf" download="Jakaria_Ahmed_Chowdhury_CV.pdf">Download Curriculum Vitae (PDF)</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 01. Research Interests -->
+  <section id="interests">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">01. Research Interests</span>
+          <h2>Core Focus Areas</h2>
+        </div>
+      </div>
+      <div class="tags-wrap">
+        <span class="tag-pill">Artificial Intelligence &amp; Machine Learning</span>
+        <span class="tag-pill">Explainable AI (XAI)</span>
+        <span class="tag-pill">Zero-Day Phishing &amp; Cybersecurity</span>
+        <span class="tag-pill">Quantum-Resistant Cryptography</span>
+        <span class="tag-pill">Trustworthy AI &amp; Financial Risk Analytics</span>
+        <span class="tag-pill">Human-Computer Interaction (HCI)</span>
+        <span class="tag-pill">E-Commerce Data Analytics</span>
+        <span class="tag-pill">Biomedical Machine Learning</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. Experience -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">02. Professional &amp; Research Experience</span>
+          <h2>Academic &amp; Industry Roles</h2>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-meta">
+            <h3>Doctoral Researcher</h3>
+            <span class="pill-badge">Present</span>
+          </div>
+          <p class="card-sub">University of the Potomac &bull; Washington, D.C., USA</p>
+          <ul>
+            <li>Conduct applied research in Artificial Intelligence, Machine Learning, and Cybersecurity focusing on explainable threat detection and trustworthy AI architectures.</li>
+            <li>Develop ML pipelines utilizing Large Language Model (LLM) embeddings and explainable ensemble methods for zero-day phishing URL detection.</li>
+            <li>Collaborate with multi-institutional research teams on post-quantum cryptographic protocols, cyber threat intelligence analytics, and biomedical ML applications.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-meta">
+            <h3>Full-Stack Developer</h3>
+            <span class="pill-badge">Mar 2019 &ndash; Aug 2022</span>
+          </div>
+          <p class="card-sub">IT Orchid &bull; Sylhet, Bangladesh</p>
+          <ul>
+            <li>Collaborated with analysts and designers to develop and deploy scalable full-stack web applications and mobile solutions using modern back-end frameworks.</li>
+            <li>Produced detailed technical specifications, implemented robust server-side software, and contributed to relational database design and query optimization.</li>
+            <li>Maintained and optimized production systems post-deployment, ensuring high availability, performance, and adherence to project timelines.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. Publications -->
+  <section id="publications">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">03. Selected Publications</span>
+          <h2>2026 Peer-Reviewed &amp; Preprints</h2>
+        </div>
+        <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QDnuKkAAAAAJ" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <i class="fas fa-graduation-cap"></i> View Complete List on Google Scholar
+        </a>
+      </div>
+
+      <div class="pub-list">
+        <article class="pub-card">
+          <span class="pill-badge">2026</span>
+          <h3>Trustworthy AI Framework For Explainable Financial Risk Analytics and Cybersecurity</h3>
+          <p class="pub-authors"><strong>Jakaria Ahmed Chowdhury</strong>, Abdul Alim, Sana Ullah, Md Abdullah Enayet, Md. Reduanur Rahman, Shakila Sultana, Aklima Akter, Abdullah Rakib Akand.</p>
+          <p class="pub-venue">International Journal of Advances in Signal and Image Sciences (IJASIS), Vol. 12, No. 10s.</p>
+          <a href="https://www.xlescience.org/index.php/IJASIS/article/view/2239" target="_blank" rel="noopener noreferrer" class="pub-link">
+            Read Paper <i class="fas fa-external-link-alt"></i>
+          </a>
+        </article>
+
+        <article class="pub-card">
+          <span class="pill-badge">2026</span>
+          <h3>Designing Quantum-Resistant Cryptographic Protocols For Interagency Cybersecurity And Data Protection</h3>
+          <p class="pub-authors">Md. Salahuddin Gazi, Tahmina Akter Rainy, Abdul Alim, <strong>Jakaria Ahmed Chowdhury</strong>, Sana Ullah, Shakila Sultana, Mst Anupa Nasrin Khan, Aklima Akter.</p>
+          <p class="pub-venue">International Journal of Advances in Signal and Image Sciences (IJASIS), Vol. 12, No. 10s.</p>
+          <a href="https://www.xlescience.org/index.php/IJASIS/article/view/2237" target="_blank" rel="noopener noreferrer" class="pub-link">
+            Read Paper <i class="fas fa-external-link-alt"></i>
+          </a>
+        </article>
+
+        <article class="pub-card">
+          <span class="pill-badge">2026</span>
+          <h3>Cyber Threat Intelligence Analytics For Law Enforcement And National Security</h3>
+          <p class="pub-authors">Biswanath Bhattacharjee, <strong>Jakaria Ahmed Chowdhury</strong>, Abdul Alim, Md Tauhid et al.</p>
+          <p class="pub-venue">International Journal of Advances in Signal and Image Sciences (IJASIS), Vol. 12.</p>
+          <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QDnuKkAAAAAJ" target="_blank" rel="noopener noreferrer" class="pub-link">
+            View on Google Scholar <i class="fas fa-external-link-alt"></i>
+          </a>
+        </article>
+
+        <article class="pub-card">
+          <span class="pill-badge">2026</span>
+          <h3>A Hybrid Quantum-Classical Machine Learning Framework for Early Parkinson's Disease Detection from Vocal Biomarkers</h3>
+          <p class="pub-authors">Md Minzamul Hasan, Md Abdullah Enayet, <strong>Jakaria Ahmed Chowdhury</strong>, Sana Ullah, Mohammad Yasin, Arat Hossain, Md Reduanur Rahman.</p>
+          <p class="pub-venue">Vascular &amp; Endovascular Review, pp. 446.</p>
+          <a href="http://verjournal.com/index.php/ver/article/download/1680/1475" target="_blank" rel="noopener noreferrer" class="pub-link">
+            Download PDF <i class="fas fa-external-link-alt"></i>
+          </a>
+        </article>
+
+        <article class="pub-card">
+          <span class="pill-badge">2026</span>
+          <h3>The Role of Data Analytics in Enhancing E-Commerce Revenue Performance in the U.S.</h3>
+          <p class="pub-authors"><strong>Jakaria Ahmed Chowdhury</strong>, Shohana Siddika, Md Mishal Mahmood, Md Ragybul Islam et al.</p>
+          <p class="pub-venue">Cuestiones de Fisioterapia, 55(1), 106-121.</p>
+          <a href="https://cuestionesdefisioterapia.com/index.php/es/article/view/4134" target="_blank" rel="noopener noreferrer" class="pub-link">
+            Read Paper <i class="fas fa-external-link-alt"></i>
+          </a>
+        </article>
+
+        <article class="pub-card">
+          <span class="pill-badge">In Progress / Under Review</span>
+          <h3>Leveraging Large Language Model Embeddings and Explainable Ensemble Learning for Zero-Day Phishing URL Detection</h3>
+          <p class="pub-authors"><strong>Jakaria Ahmed Chowdhury</strong> et al.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. Key Frameworks, Awards & Leadership -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">04. Key Frameworks, Awards &amp; Leadership</span>
+          <h2>Research Engineering &amp; Recognition</h2>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Research &amp; Engineering Developments</h3>
+          <ul style="margin-top: 14px;">
+            <li><strong>TRUST-FX Framework:</strong> Co-developed a deep learning framework augmenting Feature Tokenizer Transformers for explainable joint financial and cyber risk analytics.</li>
+            <li><strong>Zero-Day Phishing Detection Architecture:</strong> Designed explainable ensemble learning pipelines integrated with LLM embeddings to identify emerging phishing URLs.</li>
+            <li><strong>Software &amp; Mobile Game Engineering:</strong> Built full-stack web platforms, RESTful APIs, and Android mobile applications/games available on <a href="https://github.com/Jakaria051" target="_blank" rel="noopener noreferrer">GitHub</a>.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Honors, Certifications &amp; Outreach</h3>
+          <ul style="margin-top: 14px;">
+            <li><strong>Runner-up, Hackathon "Solve a Problem" Contest:</strong> Sylhet Region &bull; Active competitive programmer &amp; hackathon participant.</li>
+            <li><strong>Certified Android Mobile Game Developer:</strong> ICT Division, Government of Bangladesh &amp; George Washington University, USA.</li>
+            <li><strong>Certified Mobile Games &amp; Graphics Developer:</strong> Capacity Building Program for Mobile Game Development, ICT Division.</li>
+            <li><strong>Community Outreach &amp; Collaboration:</strong> Active volunteer with Droits and Save Sylhet; contributor to international CS &amp; cybersecurity research networks.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. Technical Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">05. Technical Skills</span>
+          <h2>Tools, Frameworks &amp; Methodologies</h2>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3><i class="fas fa-brain" style="color: var(--accent); margin-right: 8px;"></i> Machine Learning &amp; AI</h3>
+          <p class="card-sub" style="margin-top: 10px; margin-bottom: 0;">Scikit-learn, PyTorch, TensorFlow, Keras, LLM Embeddings, Ensemble Learning, Tabular Transformers, Quantum-Classical Hybrid ML</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-chart-line" style="color: var(--accent); margin-right: 8px;"></i> Quantitative Research</h3>
+          <p class="card-sub" style="margin-top: 10px; margin-bottom: 0;">Data Analysis, Statistical Modeling, Explainable AI (XAI), Cybersecurity Risk Analysis, Algorithmic Fairness &amp; Uncertainty Quantification, E-Commerce Revenue Analytics</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-code" style="color: var(--accent); margin-right: 8px;"></i> Languages &amp; Tools</h3>
+          <p class="card-sub" style="margin-top: 10px; margin-bottom: 0;">Python, C, C++, Java, PHP, JavaScript, SQL, LaTeX, R, Bash Scripting, Git, Cloud Computing, Open Journal Systems (OJS)</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-layer-group" style="color: var(--accent); margin-right: 8px;"></i> Software &amp; Web Engineering</h3>
+          <p class="card-sub" style="margin-top: 10px; margin-bottom: 0;">Laravel, CodeIgniter, RESTful APIs, HTML5, CSS3, Bootstrap, jQuery, AJAX, Android &amp; Mobile Game Development, Database Design &amp; Optimization</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. Education -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">06. Education</span>
+          <h2>Academic Background</h2>
+        </div>
+      </div>
+
+      <div class="edu-grid">
+        <div class="card">
+          <span class="pill-badge">In Progress &bull; Present</span>
+          <h3 style="margin-top: 10px;">Doctorate in Computer Science</h3>
+          <p class="card-sub" style="margin-bottom: 4px;">University of the Potomac, Washington, D.C., USA</p>
+          <span class="gpa-badge">CGPA: 4.0 / 4.0</span>
+        </div>
+
+        <div class="card">
+          <span class="pill-badge">2022 &ndash; 2024</span>
+          <h3 style="margin-top: 10px;">M.S. in Information Technology</h3>
+          <p class="card-sub" style="margin-bottom: 4px;">Washington University of Science and Technology, USA</p>
+          <span class="gpa-badge">CGPA: 3.83 / 4.0</span>
+        </div>
+
+        <div class="card">
+          <span class="pill-badge">2015 &ndash; 2019</span>
+          <h3 style="margin-top: 10px;">B.S. in Computer Science &amp; Engineering</h3>
+          <p class="card-sub" style="margin-bottom: 4px;">Metropolitan University, Sylhet, Bangladesh</p>
+          <span class="gpa-badge">CGPA: 3.67 / 4.0</span>
+        </div>
+
+        <div class="card">
+          <span class="pill-badge">2014</span>
+          <h3 style="margin-top: 10px;">Higher Secondary Certificate (HSC)</h3>
+          <p class="card-sub" style="margin-bottom: 4px;">Scholars Home College, Sylhet, Bangladesh</p>
+          <span class="gpa-badge">GPA: 4.70 / 5.0</span>
+        </div>
+
+        <div class="card">
+          <span class="pill-badge">2012</span>
+          <h3 style="margin-top: 10px;">Secondary School Certificate (SSC)</h3>
+          <p class="card-sub" style="margin-bottom: 4px;">Police Line High School, Sylhet, Bangladesh</p>
+          <span class="gpa-badge">GPA: 4.50 / 5.0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h2>Connect &amp; Collaborate</h2>
+      <p>Open to research collaborations in Explainable AI, Cybersecurity, Quantum-Resistant Cryptography, and academic peer review opportunities.</p>
+      <div class="footer-links">
+        <a href="mailto:jakaria009@gmail.com" class="btn btn-outline">
+          <i class="fas fa-envelope"></i> jakaria009@gmail.com
+        </a>
+        <a href="mailto:jakaria.chowdhury@student.potomac.edu" class="btn btn-outline">
+          <i class="fas fa-university"></i> Academic Email
+        </a>
+        <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QDnuKkAAAAAJ" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <i class="fas fa-graduation-cap"></i> Google Scholar
+        </a>
+        <a href="files/my_cv_27.pdf" download="Jakaria_Ahmed_Chowdhury_CV.pdf" class="btn btn-primary">
+          <i class="fas fa-file-download"></i> Download CV
+        </a>
+      </div>
+      <p class="copyright">&copy; 2026 Jakaria Ahmed Chowdhury. Falls Church, VA.</p>
+    </div>
+  </footer>
+
 </body>
-
 </html>
